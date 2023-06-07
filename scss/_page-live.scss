@@ -6233,6 +6233,9 @@ h6 {
 }
 
 .list-channel-wrapper {
+  @include mq(max_md) {
+    padding: 12px;
+  }
   .title {
     font-size: 18px;
     font-weight: 700;
@@ -6242,7 +6245,9 @@ h6 {
   .list-channel {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    @include mq(max_md) {
+      justify-content: space-between;
+    }
 
     .channel-item {
       min-width: 140px;
@@ -6253,11 +6258,24 @@ h6 {
       justify-content: center;
       align-items: center;
       cursor: pointer;
+      margin-right: 8px;
+      margin-bottom: 8px;
       background-color: rgb(204, 204, 204);
+
+      @include mq(max_md) {
+        min-width: calc((100%  - 24px) / 4);
+        max-width: calc((100% - 24px) / 4);
+        height: 80px;
+        margin-right: 0;
+        margin-bottom: 8px;
+      }
 
 
       svg {
         transform: scale(2.0);
+        @include mq(max_md) {
+          transform: scale(1.5);
+        }
       }
       img, svg {
         transition: all 0.3s ease;
@@ -6269,10 +6287,17 @@ h6 {
 
         img {
           transform: scale(1.5);
+          @include mq(max_md) {
+            transform: scale(1.3);
+          }
         }
 
         svg {
           transform: scale(3.0);
+
+          @include mq(max_md) {
+            transform: scale(2.0);
+          }
         }
       }
     }
